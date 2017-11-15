@@ -63,18 +63,15 @@ module.exports = {
         .catch(err => res.status(400).json({ success: false, message: err }));
     },
 
-    returnLong (req, res) {
-        const { shortUrl } = req.params;
-        
-        console.log('RETURNING', { shortUrl });
+    returnLongURL (req, res) {
+        const shortURL = req.params.shortURL;
     
-        return Url.findOne({ shortUrl })
+        return Url.findOne({shortURL: shortURL})
         .then(url => {
             // if we dont find a url we redirect back to home page
             if (!url) { return res.redirect('/').json({ success: false, message: 'This url not exist in the system' }); }
-            // we redirect to external url
-            console.log('URL', { url });
-            return res.redirect(url.longUrl);
+            
+            return res.redirect(url.originalURL);
         })
         .catch(err => res.redirect('/').json({ success: false, message: err }));
     }
