@@ -15,3 +15,7 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+src/components/home.vue
+src/assets/bg_canvas.js
+src/assets/tools.js
+src/style/

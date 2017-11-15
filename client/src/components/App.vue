@@ -19,7 +19,7 @@ export default {
   methods: {
     async postURL () {
       const response = await Shorten.sendURL({
-        url: this.inputURL
+        longUrl: this.inputURL
       })
       console.log(response.data)
     }
