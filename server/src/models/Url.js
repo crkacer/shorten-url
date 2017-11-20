@@ -11,10 +11,6 @@ const UrlSchema = new Schema({
     originalURL: {
         type: String,
         required: true
-    },
-    dateCreated: {
-        type: Date,
-        default: Date.now
     }
 }, { timestamps: true });
 
